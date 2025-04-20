@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex</title>
+  <style>
+    .flexbox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .one,
+    .two,
+    .three {
+      /* flex-basis: 100px;
+      flex-grow: 1; */
+      flex: 1 1 auto;
+      line-height: 50px;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .one {
+      background-color: skyblue;
+
+    }
+
+    .two {
+      background-color: plum;
+    }
+
+    .three {
+      background-color: salmon;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="flexbox">
+      <div class="one">111</div>
+      <div class="two">2</div>
+      <div class="three">33333</div>
+    </div>
+  </div>
+</body>
+
+</html>

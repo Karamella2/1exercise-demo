@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            border: 1px solid #abc;
+            border-radius: 5px;
+            background-color: #def;
+            font-family: Microsoft YaHei;
+            height: 40px;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            pointer-events: none;
+            /* 关键点在这里，元素禁止响应鼠标事件 */
+        }
+
+        section::after {
+            content: '';
+            border-left: 1px solid #abc;
+            display: inline-block;
+            width: 24px;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABEklEQVRoQ+2X3Q3CMAyE3Y3YBDZAbOBRzAaMwkiMgCqlUoX4SX13qiKcl77Uzn13ddpONviaBtdvBbB3gpVAJQA6UI8QaCBcXgnAFoINKgHQQLhcmoC738zsHhHzVbJkAE38uam+qCAkAC/iF+clEHSAD+JlEFSAH+IlEDSATvF0CArARvFUCBggKZ4GAQG4+8HMTuABHxHxyPaAALKbMusKgOlmptd/J9CG+JhxblVz3XWIhz5GFxeTEJSPO9oMbISgiJ8NpAHMzTohaOLpAB0QVPESgC8QdPEygDcQEvFSgBXEmD/14Mutu5x6CnXvSryxAIhmplpVAinbiEWVANHMVKtKIGUbsagSIJqZajV8Ak/MSlox+m54VQAAAABJRU5ErkJggg==);
+
+            pointer-events: auto;
+            /* 关键点在这里，伪元素覆盖父元素的 pointer-events: none ，响应鼠标事件 */
+        }
+
+        section span {
+            display: inline-block;
+            height: 100%;
+            vertical-align: top;
+            line-height: 40px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <span>按钮文字</span>
+    </section>
+    <script>
+        document.querySelector('section').addEventListener('click', () => {
+            console.log('只有点击伪元素才能触发click');
+        });
+    </script>
+</body>
+
+</html>
